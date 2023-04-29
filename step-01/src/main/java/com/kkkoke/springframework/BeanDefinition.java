@@ -7,7 +7,7 @@ package com.kkkoke.springframework;
  */
 public class BeanDefinition {
 
-    private Object bean;
+    private final Object bean;
 
     public BeanDefinition(Object bean) {
         this.bean = bean;
