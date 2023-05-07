@@ -1,4 +1,4 @@
-package com.kkkoke;
+package com.kkkoke.springframework.bean;
 
 /**
  * @author KeyCheung
