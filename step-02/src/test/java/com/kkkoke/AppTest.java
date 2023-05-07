@@ -1,38 +1,23 @@
 package com.kkkoke;
 
-import junit.framework.Test;
+import com.kkkoke.springframework.factory.config.BeanDefinition;
+import com.kkkoke.springframework.factory.support.DefaultListableBeanFactory;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+public class AppTest extends TestCase {
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    public void testBeanFactory() {
+        DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
+        BeanDefinition beanDefinition = new BeanDefinition(User.class);
+        defaultListableBeanFactory.registerBeanDefinition("user", beanDefinition);
+        User user1 = (User) defaultListableBeanFactory.getBean("user");
+        user1.getUserName();
+        // 第二次从单例缓存中获取 Bean 对象
+        User user2 = (User) defaultListableBeanFactory.getBean("user");
+        user2.getUserName();
+        System.out.println(user1 == user2);
     }
 }
