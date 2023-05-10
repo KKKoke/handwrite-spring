@@ -1,8 +1,8 @@
 package com.kkkoke.springframework;
 
 import com.kkkoke.springframework.bean.User;
-import com.kkkoke.springframework.factory.config.BeanDefinition;
-import com.kkkoke.springframework.factory.support.DefaultListableBeanFactory;
+import com.kkkoke.springframework.beans.factory.config.BeanDefinition;
+import com.kkkoke.springframework.beans.factory.support.DefaultListableBeanFactory;
 import junit.framework.TestCase;
 
 /**

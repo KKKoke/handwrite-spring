@@ -1,10 +1,10 @@
 package com.kkkoke.springframework;
 
-import com.kkkoke.framework.factory.PropertyValue;
-import com.kkkoke.framework.factory.PropertyValues;
-import com.kkkoke.framework.factory.config.BeanDefinition;
-import com.kkkoke.framework.factory.config.BeanReference;
-import com.kkkoke.framework.factory.support.DefaultListableBeanFactory;
+import com.kkkoke.framework.beans.factory.PropertyValue;
+import com.kkkoke.framework.beans.factory.PropertyValues;
+import com.kkkoke.framework.beans.factory.config.BeanDefinition;
+import com.kkkoke.framework.beans.factory.config.BeanReference;
+import com.kkkoke.framework.beans.factory.support.DefaultListableBeanFactory;
 import com.kkkoke.springframework.bean.User;
 import com.kkkoke.springframework.bean.UserService;
 import junit.framework.TestCase;
