@@ -1,5 +1,7 @@
 package com.kkkoke.springframework.context.support;
 
+import com.kkkoke.springframework.beans.BeansException;
+
 /**
  * @author KeyCheung
  * @date 2023/05/20
@@ -12,7 +14,11 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
     public ClassPathXmlApplicationContext() {
     }
 
-    public ClassPathXmlApplicationContext(String[] configLocations) {
+    public ClassPathXmlApplicationContext(String configLocations) throws BeansException {
+        this(new String[]{configLocations});
+    }
+
+    public ClassPathXmlApplicationContext(String[] configLocations) throws BeansException {
         this.configLocations = configLocations;
         refresh();
     }

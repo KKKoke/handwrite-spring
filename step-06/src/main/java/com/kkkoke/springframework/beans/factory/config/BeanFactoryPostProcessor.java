@@ -1,6 +1,7 @@
 package com.kkkoke.springframework.beans.factory.config;
 
 import com.kkkoke.springframework.beans.BeansException;
+import com.kkkoke.springframework.beans.factory.ConfigurableListableBeanFactory;
 
 /**
  * @author KeyCheung
@@ -9,5 +10,5 @@ import com.kkkoke.springframework.beans.BeansException;
  */
 public interface BeanFactoryPostProcessor {
 
-    void postProcessBeanFactory(ConfigurableBeanFactory beanFactory) throws BeansException;
+    void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException;
 }
