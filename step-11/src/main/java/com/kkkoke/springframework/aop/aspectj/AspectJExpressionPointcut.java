@@ -16,7 +16,7 @@ import java.util.Set;
  * @date 2023/06/03
  * @desc
  */
-public class AspectjExpressionPointcut implements Pointcut, ClassFilter, MethodMatcher {
+public class AspectJExpressionPointcut implements Pointcut, ClassFilter, MethodMatcher {
 
     private static final Set<PointcutPrimitive> SUPPORTED_PRIMITIVES = new HashSet<>();
 
@@ -26,7 +26,7 @@ public class AspectjExpressionPointcut implements Pointcut, ClassFilter, MethodM
 
     private final PointcutExpression pointcutExpression;
 
-    public AspectjExpressionPointcut(String expression) {
+    public AspectJExpressionPointcut(String expression) {
         PointcutParser pointcutParser = PointcutParser.getPointcutParserSupportingSpecifiedPrimitivesAndUsingSpecifiedClassLoaderForResolution(SUPPORTED_PRIMITIVES, this.getClass().getClassLoader());
         pointcutExpression = pointcutParser.parsePointcutExpression(expression);
     }

@@ -3,7 +3,7 @@ package com.kkkoke.springframework.test;
 import com.kkkoke.springframework.aop.AdvisedSupport;
 import com.kkkoke.springframework.aop.MethodMatcher;
 import com.kkkoke.springframework.aop.TargetSource;
-import com.kkkoke.springframework.aop.aspectj.AspectjExpressionPointcut;
+import com.kkkoke.springframework.aop.aspectj.AspectJExpressionPointcut;
 import com.kkkoke.springframework.aop.framework.Cglib2AopProxy;
 import com.kkkoke.springframework.aop.framework.JdkDynamicAopProxy;
 import com.kkkoke.springframework.aop.framework.ReflectiveMethodInvocation;
@@ -23,7 +23,7 @@ import java.lang.reflect.Proxy;
 public class AppTest extends TestCase {
 
     public void testAop() throws NoSuchMethodException {
-        AspectjExpressionPointcut pointcut = new AspectjExpressionPointcut("execution(* com.kkkoke.springframework.test.bean.UserService.*(..))");
+        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut("execution(* com.kkkoke.springframework.test.bean.UserService.*(..))");
 
         Class<UserService> clazz = UserService.class;
         Method method = clazz.getDeclaredMethod("queryUserInfo");
@@ -39,7 +39,7 @@ public class AppTest extends TestCase {
         AdvisedSupport advisedSupport = new AdvisedSupport();
         advisedSupport.setTargetSource(new TargetSource(userService));
         advisedSupport.setMethodInterceptor(new UserServiceInterceptor());
-        advisedSupport.setMethodMatcher(new AspectjExpressionPointcut("execution(* com.kkkoke.springframework.test.bean.IUserService.*(..))"));
+        advisedSupport.setMethodMatcher(new AspectJExpressionPointcut("execution(* com.kkkoke.springframework.test.bean.IUserService.*(..))"));
 
         // 代理对象（JdkDynamicAopProxy）
         IUserService proxyJdk = (IUserService) new JdkDynamicAopProxy(advisedSupport).getProxy();
@@ -66,7 +66,7 @@ public class AppTest extends TestCase {
         // AOP 代理
         IUserService proxy = (IUserService) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), targetObj.getClass().getInterfaces(), new InvocationHandler() {
             // 方法匹配器
-            MethodMatcher methodMatcher = new AspectjExpressionPointcut("execution(* com.kkkoke.springframework.test.bean.IUserService.*(..))");
+            MethodMatcher methodMatcher = new AspectJExpressionPointcut("execution(* com.kkkoke.springframework.test.bean.IUserService.*(..))");
 
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
